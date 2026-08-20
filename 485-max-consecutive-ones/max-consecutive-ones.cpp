@@ -4,13 +4,11 @@ public:
        int maxi =INT_MIN;
        int curr=0;
      for(int i=0;i<nums.size();i++){
-        int j=i;
-        while(j<nums.size() && nums[j]==1){
-            j++;
-        }
-        maxi = max(maxi,j-i);
-        i=j;
+       if(nums[i]==1){
+        curr++;
+        maxi = max(maxi,curr);
+       }else curr=0;
      }
-     return maxi;
+     return (maxi==INT_MIN)?0:maxi;
     }
 };
