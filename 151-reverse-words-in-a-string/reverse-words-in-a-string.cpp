@@ -1,36 +1,27 @@
 class Solution {
 public:
     string reverseWords(string s) {
-        vector<string> st;
-        string temp = "";
-        
-        for (int i = 0; i < s.size(); i++) {
-            if (s[i] != ' ') {
-                temp += s[i];
-            } else {
-                if (!temp.empty()) {
+        vector <string> st;
+        string temp="";
+        for(int i=0;i<s.size();i++){
+            if(s[i]!=' ')temp+=s[i];
+            if(s[i]==' '){
+                if(!temp.empty()){
                     st.push_back(temp);
-                    temp = "";
-                }
+                    temp="";
+                }else continue;
             }
-        }
-        
-        // Push final remaining word after loop ends
-        if (!temp.empty()) {
-            st.push_back(temp);
+            if(i==s.size()-1 && !temp.empty())st.push_back(temp);
         }
         
         string res = "";
-        reverse(st.begin(), st.end());
-        for (auto i : st) {
-            res += i;
-            res += ' ';
+        reverse(st.begin(),st.end());
+        for(auto i:st){
+            res +=i;
+            res+=' ';
         }
-        
-        if (!res.empty()) {
-            res.pop_back(); // Clean, safe way to remove trailing space
-        }
-        
+        res.erase(res.size()-1);
         return res;
+
     }
 };
