@@ -21,6 +21,6 @@ public:
               }
             }
             }  
-           return string(ans.begin(), ans.end() - 1);;  
+           return ans.substr(0,ans.size()-1);  
     }
 };
