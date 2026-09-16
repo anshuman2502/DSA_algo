@@ -10,4 +10,5 @@ public:
         }
         return i+1;
     }
+    // look one step ahead of the back pointer;
 };
